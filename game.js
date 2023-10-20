@@ -5,12 +5,11 @@ const num2=Math.floor(Math.random()*101)
 
 var numbers=document.getElementById("number1")
 var numbers2=document.getElementById("number2")
-// console.log(numbers)
 
 numbers.innerText=num1;
 numbers2.innerText=num2;
 
-score=parseInt(sessionStorage.getItem("score")) || 0
+score=parseInt(sessionStorage.getItem("score")) || 0 ;
 
 // Iteration 3: Make the options button functional
 const btns = document.getElementById("buttons")
@@ -20,15 +19,12 @@ btns.addEventListener("click",(event)=>{
         console.log("win")
         score+=1
         window.location.reload()
-        sessionStorage.setItem("score",score)
-        
-        
+        sessionStorage.setItem("score",score)  
     }
     else if (num1==num2 && event.target.id=="equal-to"){
         console.log("win")
         score+=1
-        sessionStorage.setItem("score",score)
-            
+        sessionStorage.setItem("score",score)   
         window.location.reload()
     }
     else if (num1<num2 && event.target.id=="lesser-than"){
@@ -36,8 +32,6 @@ btns.addEventListener("click",(event)=>{
         score+=1
         sessionStorage.setItem("score",score)
         window.location.reload()
-        
-
     }
     else{
         window.location.href="gameover.html"
@@ -54,15 +48,8 @@ let timeLeft = 5;
 timer.textContent = timeLeft;
 const timerInterval = setInterval(() => {
     timeLeft--;
-
     timer.textContent = `${timeLeft}`;
-
-
     if (timeLeft === 0) {
         clearInterval(timerInterval);
         window.location.href="gameover.html"
-        // console.log(timeLeft)
     }},1000)
-    // if(over==True){
-    //     timeLeft=6
-    // }
